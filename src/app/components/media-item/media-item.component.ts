@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MediaItem } from '../../models/media-item.model';
 import { MediaItemListComponent } from '../media-item-list/media-item-list.component';
 import { MediaItemService } from 'src/app/services/media-item.service';
+import { outputAst } from '@angular/compiler';
 
 @Component({
   selector: 'app-media-item',
@@ -11,6 +12,7 @@ import { MediaItemService } from 'src/app/services/media-item.service';
 export class MediaItemComponent implements OnInit {
 
   @Input() mediaItem: MediaItem;
+  @Output() onWatch = new EventEmitter<MediaItem>();
 
   constructor(private miService: MediaItemService) { }
 
@@ -23,6 +25,10 @@ export class MediaItemComponent implements OnInit {
 
   removeMediaItem(mediaItem: MediaItem){
     this.miService.removeItem(mediaItem);
+  }
+
+  onClickWatch(mediaItem: MediaItem){
+    this.onWatch.emit(mediaItem);
   }
 
 }

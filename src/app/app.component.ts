@@ -18,4 +18,8 @@ export class AppComponent {
   onCloseButtonClick(){
     this.activeMediaItem = null;
   }
+
+  onWatchEmitted(mediaItem: MediaItem){
+    this.activeMediaItem = mediaItem;
+  }
 }

@@ -1,3 +1,3 @@
 <div class="grid">
-    <app-media-item *ngFor="let mi of mediaItems" [mediaItem]="mi"></app-media-item>
+    <app-media-item *ngFor="let mi of mediaItems" [mediaItem]="mi" (onWatch)="onWatchEmited($event)"></app-media-item>
 </div>

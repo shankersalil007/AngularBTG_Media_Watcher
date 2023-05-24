@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MediaItem } from '../../models/media-item.model';
 import { MediaItemService } from 'src/app/services/media-item.service';
 
@@ -9,6 +9,9 @@ import { MediaItemService } from 'src/app/services/media-item.service';
 })
 export class MediaItemListComponent implements OnInit {
 
+  @Output() onWatch = new EventEmitter<MediaItem>();
+
+
   constructor(private miService: MediaItemService) { }
 
   ngOnInit(): void {
@@ -16,6 +19,10 @@ export class MediaItemListComponent implements OnInit {
   }
 
   mediaItems = [];
+
+  onWatchEmited(mediaItem: MediaItem){
+    this.onWatch.emit(mediaItem);
+  }
 
   
 
