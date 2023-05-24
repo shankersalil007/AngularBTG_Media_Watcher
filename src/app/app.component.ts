@@ -7,17 +7,6 @@ import { MediaItem } from './models/media-item.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
   constructor(){
-  }
-  activeMediaItem: MediaItem;
-  title = 'media-watcher';
-
-  onCloseButtonClick(){
-    this.activeMediaItem = null;
-  }
-
-  onWatchEmitted(mediaItem: MediaItem){
-    this.activeMediaItem = mediaItem;
   }
 }

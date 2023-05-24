@@ -9,8 +9,7 @@
           </svg>
     </div>
     <div>
-        <app-media-item-list (onWatch)="onWatchEmitted($event)"></app-media-item-list>
+        <app-media-item-list></app-media-item-list>
         <app-input-media-item></app-input-media-item>
     </div>
 </div>
-<app-media-watcher *ngIf="activeMediaItem" class="screen" [mediaItem]="activeMediaItem" (closeButtonClick)="onCloseButtonClick()"></app-media-watcher>

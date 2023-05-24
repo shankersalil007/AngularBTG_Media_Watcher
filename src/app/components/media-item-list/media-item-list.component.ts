@@ -12,6 +12,9 @@ export class MediaItemListComponent implements OnInit {
   @Output() onWatch = new EventEmitter<MediaItem>();
 
 
+  activeMediaItem: MediaItem;
+
+
   constructor(private miService: MediaItemService) { }
 
   ngOnInit(): void {
@@ -20,10 +23,12 @@ export class MediaItemListComponent implements OnInit {
 
   mediaItems = [];
 
-  onWatchEmited(mediaItem: MediaItem){
-    this.onWatch.emit(mediaItem);
+  onCloseButtonClick(){
+    this.activeMediaItem = null;
   }
 
-  
+  onWatchEmited(mediaItem: MediaItem){
+    this.activeMediaItem = mediaItem;
+  }
 
 }

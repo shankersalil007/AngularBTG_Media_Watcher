@@ -3,3 +3,14 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
+.screen{
+    position: absolute;
+    top:20vh;
+    right: 20vw;
+    border: 3px solid #73AD21;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: black;
+    color: white
+}

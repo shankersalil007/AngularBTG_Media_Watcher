@@ -25,7 +25,7 @@ export class InputMediaItemComponent implements OnInit {
       isFavorite: false
     }
     if(name && category && date){
-      alert("name: "+name+" category: "+category+" date: "+date);
+      // alert("name: "+name+" category: "+category+" date: "+date);
       console.log("Media Item: ",mediaItem);
       this.miService.addMediaItem(mediaItem);
     }

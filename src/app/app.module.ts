@@ -6,6 +6,7 @@ import { MediaItemComponent } from './components/media-item/media-item.component
 import { MediaItemListComponent } from './components/media-item-list/media-item-list.component';
 import { InputMediaItemComponent } from './components/input-media-item/input-media-item.component';
 import { MediaWatcherComponent } from './components/media-watcher/media-watcher.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,9 @@ import { MediaWatcherComponent } from './components/media-watcher/media-watcher.
     InputMediaItemComponent,
     MediaWatcherComponent
   ],
-  imports: [
-    BrowserModule
+  imports: [  
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
