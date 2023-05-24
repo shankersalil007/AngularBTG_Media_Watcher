@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MediaItem } from '../../models/media-item.model';
 
 @Component({
@@ -9,10 +9,15 @@ import { MediaItem } from '../../models/media-item.model';
 export class MediaWatcherComponent implements OnInit {
 
   @Input() mediaItem: MediaItem;
+  @Output() closeButtonClick = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCloseClick(){
+    this.closeButtonClick.emit(true);
   }
 
 }

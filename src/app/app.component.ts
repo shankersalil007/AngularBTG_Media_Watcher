@@ -14,4 +14,8 @@ export class AppComponent {
   }
   activeMediaItem: MediaItem;
   title = 'media-watcher';
+
+  onCloseButtonClick(){
+    this.activeMediaItem = null;
+  }
 }
