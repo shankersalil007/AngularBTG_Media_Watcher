@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { MediaItemComponent } from './components/media-item/media-item.component';
 import { MediaItemListComponent } from './components/media-item-list/media-item-list.component';
 import { InputMediaItemComponent } from './components/input-media-item/input-media-item.component';
+import { MediaWatcherComponent } from './components/media-watcher/media-watcher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MediaItemComponent,
     MediaItemListComponent,
-    InputMediaItemComponent
+    InputMediaItemComponent,
+    MediaWatcherComponent
   ],
   imports: [
     BrowserModule

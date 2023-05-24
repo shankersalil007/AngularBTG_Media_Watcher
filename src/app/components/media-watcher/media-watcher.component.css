@@ -1,0 +1,16 @@
+.t-c{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+}
+
+.t-c:hover{
+    color: rgb(217, 44, 44);
+}
+
+.screen{
+    min-width: 500px;
+    min-height: 200px;
+    text-align: center;
+}
