@@ -46,4 +46,8 @@ export class MediaItemService{
         }
       }
 
+      addMediaItem(mediaItem: MediaItem){
+        this.mediaItems.push(mediaItem)
+      }
+
 }

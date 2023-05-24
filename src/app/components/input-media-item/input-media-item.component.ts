@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaItem } from 'src/app/models/media-item.model';
+import { MediaItemService } from 'src/app/services/media-item.service';
 
 @Component({
   selector: 'app-input-media-item',
@@ -10,7 +11,7 @@ export class InputMediaItemComponent implements OnInit {
 
   idGen = 100;
 
-  constructor() { }
+  constructor(private miService: MediaItemService) { }
 
   ngOnInit(): void {
   }
@@ -18,13 +19,16 @@ export class InputMediaItemComponent implements OnInit {
   addMediaItem(name,category,date){
     const mediaItem: MediaItem = {
       id: this.idGen++,
-      name,
-      category,
+      name: name,
+      category: category,
       year: Date.parse(date),
       isFavorite: false
     }
-    alert("name: "+name+" category: "+category+" date: "+date);
-    console.log("Media Item: ",mediaItem);
+    if(name && category && date){
+      alert("name: "+name+" category: "+category+" date: "+date);
+      console.log("Media Item: ",mediaItem);
+      this.miService.addMediaItem(mediaItem);
+    }
   }
 
 }
