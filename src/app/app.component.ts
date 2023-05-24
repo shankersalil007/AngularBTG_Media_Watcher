@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MediaItem } from './models/media-item.model';
-import { MediaItemService } from './services/media-item.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +8,7 @@ import { MediaItemService } from './services/media-item.service';
 })
 export class AppComponent {
 
-  constructor(private miS: MediaItemService){
-    this.activeMediaItem = miS.mediaItems[0]
+  constructor(){
   }
   activeMediaItem: MediaItem;
   title = 'media-watcher';
