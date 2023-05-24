@@ -7,6 +7,7 @@ import { MediaItemListComponent } from './components/media-item-list/media-item-
 import { InputMediaItemComponent } from './components/input-media-item/input-media-item.component';
 import { MediaWatcherComponent } from './components/media-watcher/media-watcher.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [  
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

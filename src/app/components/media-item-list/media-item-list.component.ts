@@ -18,7 +18,12 @@ export class MediaItemListComponent implements OnInit {
   constructor(private miService: MediaItemService) { }
 
   ngOnInit(): void {
-    this.mediaItems = this.miService.mediaItems;
+    // this.mediaItems = this.miService.mediaItems;
+    this.miService.getMediaItems().subscribe(
+      mediaItems  => {
+        this.mediaItems = mediaItems;
+      }
+    )
   }
 
   mediaItems = [];
