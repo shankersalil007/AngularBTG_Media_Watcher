@@ -31,4 +31,19 @@ export class MediaItemService{
     
       ]
 
+
+      toggleFav(mediaItem: MediaItem){
+        const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
+        if(index > -1 ){
+            this.mediaItems[index].isFavorite = !this.mediaItems[index].isFavorite;
+        }
+      }
+
+      removeItem(mediaItem: MediaItem){
+        const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
+        if(index > -1 ){
+            this.mediaItems.splice(index,1);
+        }
+      }
+
 }
