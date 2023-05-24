@@ -1,0 +1,15 @@
+<h1>Add Media Item</h1>
+<div class="control">
+    <label>Name:</label><br>
+    <input #name>
+</div>
+<div class="control">
+    <label>Category:</label><br>
+    <input #category>
+</div>
+<div class="control">
+    <label>Year:</label><br>
+    <input type="date" #date>
+</div>
+<button class="add" (click)="addMediaItem(name.value,category.value,date.value)">add</button>
+

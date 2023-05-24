@@ -1,0 +1,30 @@
+:host{
+    background-color: #c4c4c4;
+}
+
+input {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+    width: 190px;
+}
+
+.add{
+    margin-top: 5px;
+    border: 0px;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    background-color: blue;
+}
+
+.add:hover{
+    background-color: rgb(9, 9, 164);
+}
+
+.control{
+    margin-bottom: 3px;
+}
