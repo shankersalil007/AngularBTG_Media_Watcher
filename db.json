@@ -29,21 +29,21 @@
       "name": "The Dark Knight",
       "year": 1211659951000,
       "category": "Action",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": 3,
       "name": "The Prestige",
       "year": 1148501551000,
       "category": "Drama",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": 4,
       "name": "Harry Potter",
       "year": 1148501551000,
       "category": "Fantasy",
-      "isFavorite": false
+      "isFavorite": true
     }
   ]
 }

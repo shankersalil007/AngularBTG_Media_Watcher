@@ -29,7 +29,11 @@ export class MediaItemComponent implements OnInit {
   }
 
   removeMediaItem(mediaItem: MediaItem){
-    this.miService.removeItem(mediaItem);
+    this.miService.removeItem(mediaItem).subscribe(
+      () => {
+        this.itemUpdated.emit(true);
+      }
+    )
   }
 
   onClickWatch(mediaItem: MediaItem){

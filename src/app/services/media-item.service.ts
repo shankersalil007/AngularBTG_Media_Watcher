@@ -33,10 +33,12 @@ export class MediaItemService{
       }
 
       removeItem(mediaItem: MediaItem){
-        const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
-        if(index > -1 ){
-            this.mediaItems.splice(index,1);
-        }
+        // const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
+        // if(index > -1 ){
+        //     this.mediaItems.splice(index,1);
+        // }
+        const urlWithId = this.URL + '/' + mediaItem.id;
+        return this.http.delete(urlWithId);
       }
 
       addMediaItem(mediaItem: MediaItem){
