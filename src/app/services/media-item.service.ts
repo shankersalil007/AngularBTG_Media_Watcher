@@ -22,10 +22,14 @@ export class MediaItemService{
   
 
       toggleFav(mediaItem: MediaItem){
-        const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
-        if(index > -1 ){
-            this.mediaItems[index].isFavorite = !this.mediaItems[index].isFavorite;
-        }
+        // const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
+        // if(index > -1 ){
+        //     this.mediaItems[index].isFavorite = !this.mediaItems[index].isFavorite;
+        // }
+        const urlWithId = this.URL + '/' + mediaItem.id;
+        var mediaItemCopy: MediaItem = {...mediaItem};
+        mediaItemCopy.isFavorite = !mediaItem.isFavorite;
+        this.http.put(urlWithId,mediaItemCopy).subscribe();
       }
 
       removeItem(mediaItem: MediaItem){
