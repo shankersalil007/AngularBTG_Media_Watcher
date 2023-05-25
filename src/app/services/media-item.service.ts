@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { MediaItem } from "../models/media-item.model";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 
 @Injectable({
@@ -12,6 +12,8 @@ export class MediaItemService{
         constructor(private http: HttpClient){}
 
         mediaItems: MediaItem[];
+
+        onRefresh$ = new Subject<boolean>();
 
         URL = 'http://localhost:3000/media';
 
@@ -42,7 +44,12 @@ export class MediaItemService{
       }
 
       addMediaItem(mediaItem: MediaItem){
-        this.mediaItems.push(mediaItem)
+        // this.mediaItems.push(mediaItem)
+        this.http.post(this.URL,mediaItem).subscribe(
+          ()=>{
+            this.onRefresh$.next(true);
+          }
+        )
       }
 
 }
