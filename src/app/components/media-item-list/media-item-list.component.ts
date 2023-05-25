@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MediaItem } from '../../models/media-item.model';
 import { MediaItemService } from 'src/app/services/media-item.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-media-item-list',
@@ -19,8 +20,15 @@ export class MediaItemListComponent implements OnInit {
 
   ngOnInit(): void {
     // this.mediaItems = this.miService.mediaItems;
-    this.miService.getMediaItems().subscribe(
+    this.fetchMediaItems()
+    
+  }
+
+  fetchMediaItems(){
+    this.miService.getMediaItems()
+    .subscribe(
       mediaItems  => {
+        debugger; 
         this.mediaItems = mediaItems;
       }
     )
@@ -34,6 +42,10 @@ export class MediaItemListComponent implements OnInit {
 
   onWatchEmited(mediaItem: MediaItem){
     this.activeMediaItem = mediaItem;
+  }
+
+  onItemUpdated(){
+    this.fetchMediaItems();
   }
 
 }

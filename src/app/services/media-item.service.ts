@@ -29,7 +29,7 @@ export class MediaItemService{
         const urlWithId = this.URL + '/' + mediaItem.id;
         var mediaItemCopy: MediaItem = {...mediaItem};
         mediaItemCopy.isFavorite = !mediaItem.isFavorite;
-        this.http.put(urlWithId,mediaItemCopy).subscribe();
+        return this.http.put(urlWithId,mediaItemCopy);
       }
 
       removeItem(mediaItem: MediaItem){

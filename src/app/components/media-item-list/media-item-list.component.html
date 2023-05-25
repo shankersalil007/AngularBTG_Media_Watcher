@@ -1,5 +1,5 @@
 <div class="grid">
-    <app-media-item *ngFor="let mi of mediaItems" [mediaItem]="mi" (onWatch)="onWatchEmited($event)"></app-media-item>
+    <app-media-item *ngFor="let mi of mediaItems" [mediaItem]="mi" (onWatch)="onWatchEmited($event)" (itemUpdated)="onItemUpdated()"></app-media-item>
 </div>
 <app-media-watcher *ngIf="activeMediaItem" class="screen" [mediaItem]="activeMediaItem" (closeButtonClick)="onCloseButtonClick()"></app-media-watcher>
 

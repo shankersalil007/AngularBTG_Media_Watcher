@@ -13,6 +13,7 @@ export class MediaItemComponent implements OnInit {
 
   @Input() mediaItem: MediaItem;
   @Output() onWatch = new EventEmitter<MediaItem>();
+  @Output() itemUpdated = new EventEmitter<boolean>();
 
   constructor(private miService: MediaItemService) { }
 
@@ -20,7 +21,11 @@ export class MediaItemComponent implements OnInit {
   }
 
   onToggleFav(mediaItem: MediaItem){
-    this.miService.toggleFav(mediaItem);
+    this.miService.toggleFav(mediaItem).subscribe(
+      ()=>{
+        this.itemUpdated.emit(true);
+      }
+    )
   }
 
   removeMediaItem(mediaItem: MediaItem){
