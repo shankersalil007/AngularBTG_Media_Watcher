@@ -1,11 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MediaItem } from '../../models/media-item.model';
 import { MediaItemService } from 'src/app/services/media-item.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-media-item-list',
   templateUrl: './media-item-list.component.html',
-  styleUrls: ['./media-item-list.component.css']
+  styleUrls: ['./media-item-list.component.css'],
 })
 export class MediaItemListComponent implements OnInit {
 
@@ -16,10 +17,19 @@ export class MediaItemListComponent implements OnInit {
 
 
   constructor(private miService: MediaItemService) { }
+  
 
   ngOnInit(): void {
-    // this.mediaItems = this.miService.mediaItems;
-    this.miService.getMediaItems().subscribe(
+   this.fetchMediaItems();
+   this.miService.onRefresh$.subscribe(
+    ()=> this.fetchMediaItems()
+   );
+  }
+
+  fetchMediaItems(){
+    this.miService.getMediaItems()
+    .pipe(take(1))
+    .subscribe(
       mediaItems  => {
         this.mediaItems = mediaItems;
       }

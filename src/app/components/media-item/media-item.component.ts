@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MediaItem } from '../../models/media-item.model';
-import { MediaItemListComponent } from '../media-item-list/media-item-list.component';
 import { MediaItemService } from 'src/app/services/media-item.service';
-import { outputAst } from '@angular/compiler';
 
 @Component({
   selector: 'app-media-item',
@@ -15,12 +13,13 @@ export class MediaItemComponent implements OnInit {
   @Output() onWatch = new EventEmitter<MediaItem>();
 
   constructor(private miService: MediaItemService) { }
+  
 
   ngOnInit(): void {
   }
 
   onToggleFav(mediaItem: MediaItem){
-    this.miService.toggleFav(mediaItem);
+    this.miService.toggleFav(mediaItem)
   }
 
   removeMediaItem(mediaItem: MediaItem){

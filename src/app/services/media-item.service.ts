@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { MediaItem } from "../models/media-item.model";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 
 @Injectable({
@@ -11,7 +11,7 @@ export class MediaItemService{
 
         constructor(private http: HttpClient){}
 
-        mediaItems: MediaItem[];
+        onRefresh$ = new Subject();
 
         URL = 'http://localhost:3000/media';
 
@@ -19,24 +19,29 @@ export class MediaItemService{
           return this.http.get<MediaItem[]>(this.URL);
         }
 
-  
-
-      toggleFav(mediaItem: MediaItem){
-        const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
-        if(index > -1 ){
-            this.mediaItems[index].isFavorite = !this.mediaItems[index].isFavorite;
+        updateMediaItem(mediaItem): Observable<MediaItem>{
+          return this.http.put<MediaItem>(this.URL+'/'+mediaItem.id,mediaItem);
         }
+        
+      toggleFav(mediaItem: MediaItem): void{
+        mediaItem.isFavorite = !mediaItem.isFavorite;
+        this.updateMediaItem(mediaItem).subscribe();
       }
 
       removeItem(mediaItem: MediaItem){
-        const index = this.mediaItems.findIndex(mi => (mi.id === mediaItem.id));
-        if(index > -1 ){
-            this.mediaItems.splice(index,1);
-        }
+        this.http.delete(this.URL+'/'+mediaItem.id).subscribe(
+          () => {
+            this.onRefresh$.next(true);
+          }
+        );
       }
 
       addMediaItem(mediaItem: MediaItem){
-        this.mediaItems.push(mediaItem)
+        this.http.post(this.URL,mediaItem).subscribe(
+          () => {
+            this.onRefresh$.next(true);
+          }
+        );
       }
 
 }
